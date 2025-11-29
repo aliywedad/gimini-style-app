@@ -1,1 +1,0 @@
-# gimini-style-app

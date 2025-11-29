@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Learn HTML tags - lightweight educational resource"
+    />
+    <title>Learn HTML Tags</title>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #1a1a1a;
+    background: #f5f5f5;
+    margin: 0 auto;
+    padding: 0;
+}
+
+header {
+    background: #2e7d32;
+    color: #fff;
+    padding: 2rem 1rem;
+    text-align: center;
+    border-bottom: 3px solid #1b5e20;
+}
+
+header h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    font-size: 1rem;
+}
+
+nav {
+    background: #388e3c;
+    display: grid;
+    grid-auto-flow: column;
+    flex-wrap: wrap;
+    border-bottom: 2px solid #2e7d32;
+    text-align: center;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 1rem;
+    display: block;
+    border-bottom: 3px solid transparent;
+    transition: background 0.2s;
+}
+
+nav a:hover,
+nav a:focus {
+    background: #2e7d32;
+    outline: 2px solid #fff;
+    outline-offset: -2px;
+}
+
+nav a.active {
+    background: #2e7d32;
+    border-bottom-color: #fff;
+}
+
+main {
+    background: #fff;
+    padding: 2rem 1rem;
+    min-height: 60vh;
+}
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+h2 {
+    color: #2e7d32;
+    margin-bottom: 1rem;
+    font-size: 1.75rem;
+    line-height: 1.3;
+}
+
+h3 {
+    color: #388e3c;
+    margin: 1.5rem 0 0.75rem;
+    font-size: 1.25rem;
+}
+
+h4 {
+    color: #43a047;
+    margin: 1rem 0 0.5rem;
+    font-size: 1.1rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+code {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-left: 3px solid #66bb6a;
+    padding: 0.5rem;
+    display: block;
+    margin: 0.5rem 0;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    overflow-x: auto;
+}
+
+.card {
+    background: #f1f8e9;
+    border-left: 4px solid #66bb6a;
+    padding: 1rem;
+    margin: 1rem 0;
+}
+
+.example {
+    background: #fffde7;
+    border-left: 4px solid #fbc02d;
+    padding: 1rem;
+    margin: 1rem 0;
+}
+
+ul {
+    margin: 0.5rem 0 1rem 1.5rem;
+}
+
+li {
+    margin: 0.5rem 0;
+}
+
+dl {
+    margin: 1rem 0;
+}
+
+dt {
+    font-weight: bold;
+    color: #2e7d32;
+    margin-top: 0.75rem;
+}
+
+dd {
+    margin-left: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.btn {
+    display: inline-block;
+    background: #43a047;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    margin: 0.5rem 0.5rem 0.5rem 0;
+    border: 2px solid #2e7d32;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.2s;
+}
+
+.btn:hover,
+.btn:focus {
+    background: #2e7d32;
+    outline: 2px solid #1b5e20;
+    outline-offset: 2px;
+}
+
+.lesson-nav {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 2px solid #e0e0e0;
+}
+
+.quiz-question {
+    background: #f1f8e9;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-left: 4px solid #66bb6a;
+    border: none;
+}
+
+.quiz-question legend {
+    font-weight: bold;
+    color: #2e7d32;
+    padding: 0 0.5rem;
+}
+
+.quiz-question p {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin: 0.5rem 0;
+    color: #1a1a1a;
+}
+
+.quiz-option {
+    background: #e8f5e9;
+    border: 2px solid #81c784;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.quiz-option:hover,
+.quiz-option:focus {
+    background: #c8e6c9;
+    outline: 2px solid #2e7d32;
+}
+
+.quiz-option.correct {
+    background: #66bb6a;
+    color: #fff;
+    border-color: #2e7d32;
+}
+
+.quiz-option.incorrect {
+    background: #ef5350;
+    color: #fff;
+    border-color: #c62828;
+}
+
+.progress {
+    background: #e0e0e0;
+    height: 8px;
+    margin: 1rem 0;
+    overflow: hidden;
+}
+
+.progress div {
+    background: #43a047;
+    height: 100%;
+    transition: width 0.3s;
+}
+
+.score {
+    background: #2e7d32;
+    color: #fff;
+    padding: 1.5rem;
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.score p {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+footer {
+    background: #2e7d32;
+    color: #fff;
+    text-align: center;
+    padding: 1.5rem 1rem;
+}
+
+:focus {
+    outline: 2px solid #2e7d32;
+    outline-offset: 2px;
+}
+
+@media (max-width: 600px) {
+    body {
+        font-size: 14px;
+    }
+    
+    header h1 {
+        font-size: 1.5rem;
+    }
+    
+    nav a {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+    }
+    
+    main {
+        padding: 1rem;
+    }
+    
+    code {
+        font-size: 0.8rem;
+    }
+}
+
+ @media print {
+    body {
+        background: #fff;
+    }
+    
+    nav, footer, .btn {
+        display: none;
+    }
+    
+    .page {
+        display: block !important;
+        page-break-after: always;
+    }
+    
+    code {
+        border: 1px solid #000;
+    }
+}
+    </style>
+  </head>
+  <body>
+    <header role="banner">
+      <h1>Learn HTML Tags</h1>
+      <p>Master the fundamentals of HTML markup</p>
+    </header>
+
+    <nav role="navigation" aria-label="Main navigation">
+      <a href="#home" class="active" id="nav-home">Home</a>
+      <a href="#lesson1" id="nav-lesson1">Basics</a>
+      <a href="#lesson2" id="nav-lesson2">Structure</a>
+      <a href="#lesson3" id="nav-lesson3">Semantic</a>
+      <a href="#quiz" id="nav-quiz">Quiz</a>
+      <a href="#summary" id="nav-summary">Summary</a>
+    </nav>
+
+    <main role="main">
+      <article id="home" class="page active">
+        <h2>Welcome to HTML Learning</h2>
+        <p>
+          This course teaches you about HTML tags and markup fundamentals. HTML
+          (HyperText Markup Language) is the standard language for creating web
+          pages.
+        </p>
+
+        <section class="card">
+          <h3>What You'll Learn</h3>
+          <ul>
+            <li>Understanding HTML tags and elements</li>
+            <li>Document structure tags</li>
+            <li>Semantic HTML elements</li>
+            <li>Best practices for accessible markup</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h3>Course Structure</h3>
+          <p>
+            This course contains 3 lessons covering essential HTML tags,
+            followed by a comprehensive quiz to test your knowledge and a
+            summary page.
+          </p>
+        </section>
+
+        <a href="#lesson1" class="btn">Start Learning</a>
+      </article>
+
+      <article id="lesson1" class="page">
+        <h2>Lesson 1: HTML Basics</h2>
+
+        <p>
+          HTML uses tags to define elements on a web page. Tags are enclosed in
+          angle brackets and usually come in pairs: an opening tag and a closing
+          tag.
+        </p>
+
+        <section class="card">
+          <h3>Tag Syntax</h3>
+          <p><strong>Opening tag:</strong> &lt;tagname&gt;</p>
+          <p><strong>Closing tag:</strong> &lt;/tagname&gt;</p>
+          <p>
+            <strong>Example:</strong> &lt;p&gt;This is a paragraph.&lt;/p&gt;
+          </p>
+        </section>
+
+        <h3>Essential Text Tags</h3>
+
+        <section class="card">
+          <h4>&lt;h1&gt; to &lt;h6&gt; - Headings</h4>
+          <p>
+            Define headings from most important (h1) to least important (h6).
+          </p>
+          <code>&lt;h1&gt;Main Title&lt;/h1&gt;</code>
+        </section>
+
+        <section class="card">
+          <h4>&lt;p&gt; - Paragraph</h4>
+          <p>Defines a paragraph of text.</p>
+          <code>&lt;p&gt;This is a paragraph.&lt;/p&gt;</code>
+        </section>
+
+        <section class="card">
+          <h4>&lt;strong&gt; and &lt;em&gt;</h4>
+          <p><strong>&lt;strong&gt;</strong>: Important text (bold)</p>
+          <p><strong>&lt;em&gt;</strong>: Emphasized text (italic)</p>
+          <code
+            >&lt;strong&gt;Bold&lt;/strong&gt; and
+            &lt;em&gt;italic&lt;/em&gt;</code
+          >
+        </section>
+
+        <section class="card">
+          <h4>&lt;br&gt; and &lt;hr&gt;</h4>
+          <p><strong>&lt;br&gt;</strong>: Line break (self-closing)</p>
+          <p><strong>&lt;hr&gt;</strong>: Horizontal rule (self-closing)</p>
+        </section>
+
+        <section class="example">
+          <h3>Self-Closing Tags</h3>
+          <p>
+            Some tags don't need a closing tag because they don't contain
+            content. These are called void elements.
+          </p>
+          <p>Examples: &lt;br&gt;, &lt;hr&gt;, &lt;img&gt;, &lt;input&gt;</p>
+        </section>
+
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+          <a href="#home" class="btn">Previous</a>
+          <a href="#lesson2" class="btn">Next Lesson</a>
+        </nav>
+      </article>
+
+      <article id="lesson2" class="page">
+        <h2>Lesson 2: Document Structure Tags</h2>
+
+        <p>
+          These tags define the structure and organization of your HTML
+          document.
+        </p>
+
+        <section class="card">
+          <h3>&lt;html&gt;</h3>
+          <p>The root element that contains all other HTML elements.</p>
+          <code>&lt;html lang="en"&gt;...&lt;/html&gt;</code>
+        </section>
+
+        <section class="card">
+          <h3>&lt;head&gt;</h3>
+          <p>Contains metadata about the document (not visible on page).</p>
+          <p>
+            Includes: &lt;title&gt;, &lt;meta&gt;, &lt;link&gt;, &lt;style&gt;
+          </p>
+        </section>
+
+        <section class="card">
+          <h3>&lt;body&gt;</h3>
+          <p>Contains all visible content of the web page.</p>
+          <code>&lt;body&gt;...all visible content...&lt;/body&gt;</code>
+        </section>
+
+        <h3>List Tags</h3>
+
+        <section class="card">
+          <h4>&lt;ul&gt; - Unordered List</h4>
+          <p>Creates a bulleted list.</p>
+          <code
+            >&lt;ul&gt;&lt;li&gt;Item 1&lt;/li&gt;&lt;li&gt;Item
+            2&lt;/li&gt;&lt;/ul&gt;</code
+          >
+        </section>
+
+        <section class="card">
+          <h4>&lt;ol&gt; - Ordered List</h4>
+          <p>Creates a numbered list.</p>
+          <code
+            >&lt;ol&gt;&lt;li&gt;First&lt;/li&gt;&lt;li&gt;Second&lt;/li&gt;&lt;/ol&gt;</code
+          >
+        </section>
+
+        <section class="card">
+          <h4>&lt;li&gt; - List Item</h4>
+          <p>
+            Defines an item in a list (used inside &lt;ul&gt; or &lt;ol&gt;).
+          </p>
+        </section>
+
+        <h3>Link and Media Tags</h3>
+
+        <section class="card">
+          <h4>&lt;a&gt; - Anchor/Link</h4>
+          <p>Creates hyperlinks to other pages or resources.</p>
+          <code>&lt;a href="page.html"&gt;Click here&lt;/a&gt;</code>
+        </section>
+
+        <section class="card">
+          <h4>&lt;img&gt; - Image</h4>
+          <p>Embeds an image (self-closing).</p>
+          <code>&lt;img src="photo.jpg" alt="Description"&gt;</code>
+          <p>
+            <strong>Note:</strong> Always include alt attribute for
+            accessibility.
+          </p>
+        </section>
+
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+          <a href="#lesson1" class="btn">Previous</a>
+          <a href="#lesson3" class="btn">Next Lesson</a>
+        </nav>
+      </article>
+
+      <article id="lesson3" class="page">
+        <h2>Lesson 3: Semantic HTML Tags</h2>
+
+        <p>
+          Semantic tags clearly describe their meaning to both the browser and
+          the developer. They improve accessibility and SEO.
+        </p>
+
+        <section class="card">
+          <h3>Why Use Semantic HTML?</h3>
+          <ul>
+            <li>Better accessibility for screen readers</li>
+            <li>Improved SEO (search engines understand content better)</li>
+            <li>Easier code maintenance</li>
+            <li>Clearer document structure</li>
+          </ul>
+        </section>
+
+        <h3>Page Structure Tags</h3>
+
+        <section class="card">
+          <h4>&lt;header&gt;</h4>
+          <p>
+            Introductory content or navigation links. Usually contains logo,
+            site title, or navigation.
+          </p>
+        </section>
+
+        <section class="card">
+          <h4>&lt;nav&gt;</h4>
+          <p>Section containing navigation links.</p>
+          <code
+            >&lt;nav&gt;&lt;a href="#home"&gt;Home&lt;/a&gt;&lt;/nav&gt;</code
+          >
+        </section>
+
+        <section class="card">
+          <h4>&lt;main&gt;</h4>
+          <p>Main content of the document. Only one per page.</p>
+        </section>
+
+        <section class="card">
+          <h4>&lt;article&gt;</h4>
+          <p>
+            Self-contained content that could be distributed independently (blog
+            post, news article).
+          </p>
+        </section>
+
+        <section class="card">
+          <h4>&lt;section&gt;</h4>
+          <p>Thematic grouping of content, typically with a heading.</p>
+        </section>
+
+        <section class="card">
+          <h4>&lt;aside&gt;</h4>
+          <p>
+            Content tangentially related to main content (sidebar, callout box).
+          </p>
+        </section>
+
+        <section class="card">
+          <h4>&lt;footer&gt;</h4>
+          <p>
+            Footer of a document or section. Usually contains author info,
+            copyright, links.
+          </p>
+        </section>
+
+        <h3>Content Tags</h3>
+
+        <section class="card">
+          <h4>&lt;figure&gt; and &lt;figcaption&gt;</h4>
+          <p>
+            Used together to markup images, diagrams, or code snippets with
+            captions.
+          </p>
+          <code
+            >&lt;figure&gt;&lt;img src="chart.png" alt="Sales
+            chart"&gt;&lt;figcaption&gt;2024
+            Sales&lt;/figcaption&gt;&lt;/figure&gt;</code
+          >
+        </section>
+
+        <section class="card">
+          <h4>&lt;code&gt;</h4>
+          <p>Displays a piece of computer code.</p>
+          <code>&lt;code&gt;let x = 5;&lt;/code&gt;</code>
+        </section>
+
+        <section class="example">
+          <h3>Semantic vs Non-Semantic</h3>
+          <p>
+            <strong>Non-semantic:</strong> &lt;div&gt; and &lt;span&gt; - tell
+            nothing about content
+          </p>
+          <p>
+            <strong>Semantic:</strong> &lt;header&gt;, &lt;nav&gt;,
+            &lt;article&gt;, &lt;footer&gt; - clearly define content purpose
+          </p>
+        </section>
+
+        <nav class="lesson-nav" aria-label="Lesson navigation">
+          <a href="#lesson2" class="btn">Previous</a>
+          <a href="#quiz" class="btn">Take the Quiz</a>
+        </nav>
+      </article>
+
+ 
+      <article id="quiz" class="page">
+        <h2>Test Your Knowledge</h2>
+        <p>
+          Answer these questions to test what you've learned about HTML tags.
+        </p>
+
+        <div
+          class="progress"
+          role="progressbar"
+          aria-valuenow="0"
+          aria-valuemin="0"
+          aria-valuemax="100"
+        >
+          <div id="progress" style="width: 0%"></div>
+        </div>
+
+        <form id="quiz-form" aria-live="polite"></form>
+
+        <div id="quiz-result" style="display: none">
+          <section class="score">
+            <p>Your Score: <strong id="score">0</strong>/10</p>
+          </section>
+          <nav aria-label="Quiz actions">
+            <a href="#quiz" class="btn" id="retake">Retake Quiz</a>
+            <a href="#summary" class="btn">Go to Summary</a>
+          </nav>
+        </div>
+      </article>
+
+      <article id="summary" class="page">
+        <h2>Course Summary</h2>
+
+        <p>
+          Congratulations on completing the HTML tags course! Here's what you
+          learned:
+        </p>
+
+        <section class="card">
+          <h3>Key Takeaways</h3>
+          <ul>
+            <li>HTML uses tags to structure web content</li>
+            <li>
+              Tags come in pairs (opening and closing) or are self-closing
+            </li>
+            <li>
+              Document structure uses &lt;html&gt;, &lt;head&gt;, and
+              &lt;body&gt;
+            </li>
+            <li>Semantic tags improve accessibility and SEO</li>
+            <li>Always use appropriate tags for better code quality</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h3>Essential Tags Reference</h3>
+          <dl>
+            <dt>Text</dt>
+            <dd>
+              &lt;h1&gt;-&lt;h6&gt;, &lt;p&gt;, &lt;strong&gt;, &lt;em&gt;
+            </dd>
+
+            <dt>Structure</dt>
+            <dd>&lt;html&gt;, &lt;head&gt;, &lt;body&gt;, &lt;div&gt;</dd>
+
+            <dt>Lists</dt>
+            <dd>&lt;ul&gt;, &lt;ol&gt;, &lt;li&gt;</dd>
+
+            <dt>Links &amp; Media</dt>
+            <dd>&lt;a&gt;, &lt;img&gt;</dd>
+
+            <dt>Semantic</dt>
+            <dd>
+              &lt;header&gt;, &lt;nav&gt;, &lt;main&gt;, &lt;article&gt;,
+              &lt;section&gt;, &lt;aside&gt;, &lt;footer&gt;
+            </dd>
+          </dl>
+        </section>
+
+        <section class="example">
+          <h3>Next Steps</h3>
+          <p>
+            Now that you understand HTML tags, practice by creating your own web
+            pages. Remember to use semantic HTML for better accessibility and
+            maintainability.
+          </p>
+          <p>
+            Continue learning about CSS for styling and JavaScript for
+            interactivity.
+          </p>
+        </section>
+
+        <nav aria-label="Summary actions">
+          <a href="#home" class="btn">Back to Home</a>
+          <a href="#quiz" class="btn">Retake Quiz</a>
+        </nav>
+      </article>
+    </main>
+
+    <footer role="contentinfo">
+      <p>Learn HTML Tags - An Educational Platform</p>
+    </footer>
+
+    <script>
+      const quizData = [
+        {
+          question: "What does HTML stand for?",
+          options: [
+            "Hyper Text Markup Language",
+            "High Tech Modern Language",
+            "Home Tool Markup Language",
+            "Hyperlinks and Text Markup Language",
+          ],
+          correct: 0,
+        },
+        {
+          question: "Which tag is used to create a paragraph?",
+          options: [
+            "&lt;paragraph&gt;",
+            "&lt;p&gt;",
+            "&lt;para&gt;",
+            "&lt;pg&gt;",
+          ],
+          correct: 1,
+        },
+        {
+          question: "What type of tag is &lt;br&gt;?",
+          options: [
+            "Opening tag",
+            "Closing tag",
+            "Self-closing tag",
+            "Invalid tag",
+          ],
+          correct: 2,
+        },
+        {
+          question: "Which tag creates the most important heading?",
+          options: [
+            "&lt;h6&gt;",
+            "&lt;h1&gt;",
+            "&lt;heading&gt;",
+            "&lt;head&gt;",
+          ],
+          correct: 1,
+        },
+        {
+          question: "What does the &lt;a&gt; tag create?",
+          options: ["An image", "A link", "A list", "A paragraph"],
+          correct: 1,
+        },
+        {
+          question: "Which attribute is required for the &lt;img&gt; tag?",
+          options: ["title", "alt", "src", "Both alt and src"],
+          correct: 3,
+        },
+        {
+          question: "What is the purpose of semantic HTML?",
+          options: [
+            "To make pages load faster",
+            "To improve accessibility and SEO",
+            "To add colors to the page",
+            "To create animations",
+          ],
+          correct: 1,
+        },
+        {
+          question: "Which tag defines the main content of a document?",
+          options: [
+            "&lt;content&gt;",
+            "&lt;body&gt;",
+            "&lt;main&gt;",
+            "&lt;article&gt;",
+          ],
+          correct: 2,
+        },
+        {
+          question: "What does &lt;nav&gt; contain?",
+          options: [
+            "Images",
+            "Navigation links",
+            "Videos",
+            "Footer information",
+          ],
+          correct: 1,
+        },
+        {
+          question: "Which is a non-semantic tag?",
+          options: [
+            "&lt;header&gt;",
+            "&lt;article&gt;",
+            "&lt;div&gt;",
+            "&lt;footer&gt;",
+          ],
+          correct: 2,
+        },
+      ];
+
+      let currentQuestion = 0;
+      let score = 0;
+      let answered = false;
+
+      // Initialize on page load
+      document.addEventListener("DOMContentLoaded", function () {
+        setupNavigation();
+        handleHash();
+        window.addEventListener("hashchange", handleHash);
+      });
+
+      // Setup Navigation
+      function setupNavigation() {
+        const navLinks = document.querySelectorAll("nav a");
+        navLinks.forEach((link) => {
+          link.addEventListener("click", function (e) {
+            const href = this.getAttribute("href");
+            if (href.startsWith("#")) {
+              e.preventDefault();
+              showPage(href.substring(1));
+              window.location.hash = href;
+            }
+          });
+        });
+
+        // Retake quiz button
+        const retakeBtn = document.getElementById("retake");
+        if (retakeBtn) {
+          retakeBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            resetQuiz();
+          });
+        }
+      }
+
+      // Handle URL hash changes
+      function handleHash() {
+        let hash = window.location.hash.substring(1);
+        if (!hash) hash = "home";
+        showPage(hash);
+      }
+
+      // Show specific page
+      function showPage(pageId) {
+        const pages = document.querySelectorAll(".page");
+        pages.forEach((page) => page.classList.remove("active"));
+
+        const navLinks = document.querySelectorAll("nav a");
+        navLinks.forEach((link) => link.classList.remove("active"));
+
+        const targetPage = document.getElementById(pageId);
+        const targetNav = document.getElementById("nav-" + pageId);
+
+        if (targetPage) targetPage.classList.add("active");
+        if (targetNav) targetNav.classList.add("active");
+
+        if (pageId === "quiz") {
+          loadQuiz();
+        }
+
+        // Scroll to top
+        window.scrollTo(0, 0);
+      }
+
+      // Quiz Functions
+      function loadQuiz() {
+        currentQuestion = 0;
+        score = 0;
+        answered = false;
+        document.getElementById("quiz-result").style.display = "none";
+        displayQuestion();
+      }
+
+      function displayQuestion() {
+        if (currentQuestion >= quizData.length) {
+          showResults();
+          return;
+        }
+
+        const question = quizData[currentQuestion];
+        const form = document.getElementById("quiz-form");
+
+        let html = `
+        <fieldset class="quiz-question">
+            <legend>Question ${currentQuestion + 1} of ${
+          quizData.length
+        }</legend>
+            <p>${question.question}</p>
+        </fieldset>
+    `;
+
+        question.options.forEach((option, index) => {
+          html += `
+            <div class="quiz-option" tabindex="0" role="button" data-index="${index}">
+                ${option}
+            </div>
+        `;
+        });
+
+        form.innerHTML = html;
+
+        // Add event listeners
+        const options = form.querySelectorAll(".quiz-option");
+        options.forEach((opt) => {
+          opt.addEventListener("click", function () {
+            selectAnswer(parseInt(this.dataset.index));
+          });
+          opt.addEventListener("keypress", function (e) {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              selectAnswer(parseInt(this.dataset.index));
+            }
+          });
+        });
+
+        updateProgress();
+      }
+
+      function selectAnswer(selected) {
+        if (answered) return;
+        answered = true;
+
+        const question = quizData[currentQuestion];
+        const options = document.querySelectorAll(".quiz-option");
+
+        if (selected === question.correct) {
+          options[selected].classList.add("correct");
+          score++;
+        } else {
+          options[selected].classList.add("incorrect");
+          options[question.correct].classList.add("correct");
+        }
+
+        // Disable all options
+        options.forEach((opt) => {
+          opt.style.cursor = "default";
+          opt.removeAttribute("tabindex");
+        });
+
+        setTimeout(() => {
+          currentQuestion++;
+          answered = false;
+          displayQuestion();
+        }, 1500);
+      }
+
+      function updateProgress() {
+        const progress = (currentQuestion / quizData.length) * 100;
+        const progressBar = document.getElementById("progress");
+        progressBar.style.width = progress + "%";
+        progressBar.parentElement.setAttribute("aria-valuenow", progress);
+      }
+
+      function showResults() {
+        document.getElementById("quiz-form").innerHTML = "";
+        document.getElementById("quiz-result").style.display = "block";
+        document.getElementById("score").textContent = score;
+        document.getElementById("progress").style.width = "100%";
+      }
+
+      function resetQuiz() {
+        loadQuiz();
+      }
+    </script>
+  </body>
+</html>
